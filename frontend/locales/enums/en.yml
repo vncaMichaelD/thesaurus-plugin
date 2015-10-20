@@ -1,0 +1,7 @@
+en:
+  enumerations:
+    thesa_subject:
+      placename: Place Name
+      militaryterm: Military Term
+      militarytitle: Military Title
+      odp: ODP

@@ -1,0 +1,31 @@
+en:
+  thesa:
+    subject: Subject
+    term: Term
+    general_note: Note
+    preferred: Preferred format?
+    _singular: Thesaurus
+    _plural: Thesaurus
+    _frontend:
+      action:
+        save: Save Thesaurus
+        create: Create
+      section:
+        basic_information: Basic Information
+      messages:
+        created: Thesaurus Term Created
+        updated: Thesaurus Updated
+        deleted: Thesaurus Term deleted.
+
+  thesa_term:
+    term: Term
+    preferred: Preferred format?
+    _singular: Term
+    _plural: Terms
+    _frontend:
+      action:
+        add: Add Term
+        create: Create
+      messages:
+        updated: Thesaurus Term updated.
+        deleted: Thesaurus Term deleted.

@@ -1,0 +1,6 @@
+<% define_template "thesa_term", jsonmodel_definition(:thesa_term) do |form| %>
+  <div class="subrecord-form-fields">
+    <%= form.label_and_textfield "term" %>
+    <%= form.label_and_boolean "preferred", {}, form.default_for("preferred") %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<%= setup_context(:object => @thesa, :title => @thesa.display_string) %>
+
+<div class="row">
+   <div class="col-md-3">
+      <%= render_aspace_partial :partial => "sidebar" %>
+   </div>
+   <div class="col-md-9">
+    <%= render_aspace_partial :partial => "thesas/toolbar" %>
+    <div class="record-pane">
+      <%= readonly_context :thesa, @thesa do |readonly| %>
+          <h2><%= @thesa.display_string %> <span class="label label-info label-default"><%= I18n.t("thesa._singular") %></span></h2>
+  
+          <%= render_aspace_partial :partial => "shared/flash_messages" %>
+
+          <% define_template "thesa", jsonmodel_definition(:thesa) do |form| %>
+          <section id="basic_information">
+            <h3><%= I18n.t "thesa._frontend.section.basic_information" %></h3>
+
+            <%= readonly.label_and_select "subject", readonly.possible_options_for("subject", true) %>
+            <%= readonly.label_and_textarea "general_note" %>
+
+            <%= display_audit_info(@thesa) %>
+          </section>
+          <% end %>
+
+          <% readonly.emit_template("thesa") %>
+
+          <% if @thesa.thesa_terms.length > 0 %>
+            <%= render_aspace_partial :partial => "thesa_terms/show", :locals => { :thesa_terms => @thesa.thesa_terms, :section_id => "thesa_thesa_terms_", :context => readonly } %>
+          <% end %>
+
+         <%= show_plugins_for(@thesa, readonly) %>
+
+       <% end %>
+     </div>
+   </div>
+</div>

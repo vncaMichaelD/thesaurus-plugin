@@ -1,0 +1,25 @@
+<%
+   section_id = "thesa_terms" if section_id.blank?
+%>
+
+<section id="<%= section_id %>">
+  <h3><%= I18n.t("thesa_term._plural") %></h3>
+  <div class="accordion details" id="<%= section_id %>_accordion">
+    <% thesa_terms.each_with_index do | thesa_term, index | %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row accordion-toggle collapsed" data-toggle="collapse" data-parent="#<%= section_id %>_accordion" href="#<%= section_id %>_thesa_term_<%= index %>">
+            <div class="col-md-5">
+              <%= thesa_term['term'] %>
+            </div>
+			<div class="col-md-4">
+              <% if thesa_term['preferred'] %>
+                Preferred
+			  <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

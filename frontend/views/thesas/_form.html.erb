@@ -1,0 +1,24 @@
+<%= render_aspace_partial :partial => "shared/form_messages", :locals => {:object => @thesa, :form => form} %>
+
+<% define_template("thesa", jsonmodel_definition(:thesa)) do |form| %>
+  <section id="basic_information">
+    <h3>
+      <%= I18n.t "thesa._frontend.section.basic_information" %>
+      <%= link_to_help :topic => "thesa_basic_information" %>
+    </h3>
+    <fieldset>
+       <%= form.label_and_select "subject", form.possible_options_for("subject", true) %>
+       <%= form.label_and_textarea "general_note" %>
+    </fieldset>
+  </section>
+<% end %>
+
+<% form.emit_template("thesa") %>
+
+<%= render_aspace_partial :partial => "shared/subrecord_form", :locals => {:form => form, :name => "thesa_terms"} %>
+
+
+<div class="form-actions">            
+  <button type="submit" class="btn btn-primary"><%= I18n.t("thesa._frontend.action.save") %></button>
+  <%= link_to I18n.t("actions.cancel"), :back, :class => "btn btn-cancel btn-default" %>
+</div>

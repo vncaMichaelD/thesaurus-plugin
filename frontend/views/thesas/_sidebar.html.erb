@@ -1,0 +1,8 @@
+<%= render(:layout => '/shared/sidebar',
+           :locals => {
+             :record_type => 'thesa',
+             :record => @thesa
+           }) do |sidebar| %>
+
+    <%= sidebar.render_for_view_and_edit(:subrecord_type => 'thesa_term', :property => 'thesa_terms') %>
+<% end %>
